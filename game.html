@@ -8,6 +8,8 @@
 
   function playGame() {
 
+    "use strict";
+
     let playerScore = 0;
     let computerScore = 0;
 
@@ -20,7 +22,7 @@
       function playerPlay() {
         let playerWeapon = "";
 
-        while (playerWeapon === "" || playerWeapon == null) {
+        while (playerWeapon === "" || playerWeapon === null) {
           playerWeapon = prompt("Let's play \"Rock, Paper, Scissors\"!\nWhat is your choice of weapon—rock, paper, or scissors?", "").toLowerCase();
         }
         while (!choices.includes(playerWeapon)) {
