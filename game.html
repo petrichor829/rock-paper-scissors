@@ -6,10 +6,11 @@
 <body>
   <script>
 
+  playGame();
+
   function playGame() {
 
     "use strict";
-
     let playerScore = 0;
     let computerScore = 0;
 
@@ -21,13 +22,13 @@
 
       function playerPlay() {
         let playerWeapon = "";
-
-        while (playerWeapon === "" || playerWeapon === null) {
-          playerWeapon = prompt("Let's play \"Rock, Paper, Scissors\"!\nWhat is your choice of weapon—rock, paper, or scissors?", "").toLowerCase();
-        }
-        while (!choices.includes(playerWeapon)) {
-          alert("That is not a valid weapon choice!");
-          playerWeapon = prompt("Try again. What is your choice of weapon—rock, paper, or scissors?", "").toLowerCase();
+        while (true) {
+          if (!playerWeapon) {
+            playerWeapon = prompt("Let's play \"Rock, Paper, Scissors\"!\nWhat is your choice of weapon—rock, paper, or scissors?", "").toLowerCase();
+          } else if (!choices.includes(playerWeapon)) {
+            alert("That is not a valid weapon choice!");
+            playerWeapon = prompt("Try again. What is your choice of weapon—rock, paper, or scissors?", "").toLowerCase();
+          } else break;
         }
         console.log(`Player chooses ${playerWeapon}.`);
         return playerWeapon;
@@ -67,9 +68,7 @@
       return message;
     }
 
-    for (let rounds = 0; rounds < 5; rounds++) {
-      playRound();
-    }
+    for (let rounds = 0; rounds < 5; rounds++) playRound();
 
     function announceWinner() {
       if (playerScore > computerScore) {
@@ -84,8 +83,6 @@
     console.log(announceWinner());
     return(announceWinner());
   }
-
-  playGame();
 
   </script>
 </body>
