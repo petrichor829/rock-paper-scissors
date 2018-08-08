@@ -32,7 +32,7 @@
       </table>
     </div>
 </body>
-<script> // make script external
+<script>
 
     const heading = document.querySelector("#heading");
     const wrapper = document.querySelector("#wrapper");
@@ -116,8 +116,6 @@
             winner = "You win the game!";
             } else if (playerScore < computerScore) {
             winner = "The computer wins the game!";
-            } else {
-            winner = "Call it a draw!";
             }
             let winnerAnnouncement = document.createElement("h3");
             winnerAnnouncement.textContent = `${winner}`;
